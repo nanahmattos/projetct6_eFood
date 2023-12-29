@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  padding: 56px 171px;
+  padding: 56px 0;
 `
 export const List = styled.ul`
   display: grid;
