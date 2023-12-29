@@ -4,18 +4,18 @@ import vectorImg from '../../assets/images/talherbg.svg'
 import logo from '../../assets/images/logo.svg'
 
 const Header = () => (
-  <S.HeaderBar style={{ backgroundImage: `url(${vectorImg})` }}>
+  <header style={{ backgroundImage: `url(${vectorImg})` }}>
     <nav className="container">
       <S.Links>
-        <S.LinkItem>Restaurantes</S.LinkItem>
-        <S.LinkItem>
+        <li>Restaurantes</li>
+        <li>
           <Link to="/">
             <img src={logo} alt="logo" />
           </Link>
-        </S.LinkItem>
-        <S.LinkItem>0 produto(s) no carrinho</S.LinkItem>
+        </li>
+        <li>0 produto(s) no carrinho</li>
       </S.Links>
     </nav>
-  </S.HeaderBar>
+  </header>
 )
 export default Header

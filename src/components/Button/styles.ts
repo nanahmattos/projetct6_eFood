@@ -4,7 +4,7 @@ import { palette } from '../../styles'
 
 export const Button = styled.button`
   padding: 4px 6px;
-  background-color: ${palette.branco};
+  background-color: ${palette.white};
   color: ${palette.orange};
   font-weight: bold;
   font-size: 14px;
@@ -15,7 +15,7 @@ export const Button = styled.button`
 export const ButtonLink = styled(Link)`
   padding: 4px 6px;
   background-color: ${palette.orange};
-  color: #fff;
+  color: ${palette.white};
   font-weight: bold;
   font-size: 14px;
   text-align: center;

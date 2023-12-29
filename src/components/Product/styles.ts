@@ -3,7 +3,7 @@ import { palette } from '../../styles'
 
 export const CardProduct = styled.div`
   background-color: ${palette.orange};
-  color: #fff;
+  color: ${palette.white};
   padding: 8px;
   font-size: 14px;
   display: flex;

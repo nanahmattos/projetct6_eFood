@@ -17,8 +17,8 @@ export const Description = styled.p`
 `
 export const Infos = styled.div`
   position: absolute;
-  top: 22px;
-  right: 20px;
+  top: 16px;
+  right: 8px;
 `
 export const Tag = styled.div`
   background-color: ${palette.orange};
@@ -28,7 +28,7 @@ export const Tag = styled.div`
   text-align: center;
   padding: 4px 6px;
   display: inline-block;
-  margin-right: 16px;
+  margin-right: 8px;
 `
 export const Item = styled.div`
   display: flex;

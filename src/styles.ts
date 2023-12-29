@@ -6,7 +6,7 @@ export const palette = {
   orangeLight: '#F27405',
   brown: '#8C472E',
   nude: '#F2BEA0',
-  branco: '#FFF8F2'
+  white: '#FFF8F2'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -19,8 +19,8 @@ export const GlobalCss = createGlobalStyle`
     overflow-x: hidden;
   }
   body {
-    background-color: ${palette.branco};
-    color: ${palette.branco};
+    background-color: ${palette.white};
+    color: ${palette.white};
   }
 
   .container {
