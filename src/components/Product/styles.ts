@@ -37,4 +37,33 @@ export const ModalContent = styled.div`
   background-color: ${palette.orange};
   posisition: relative;
   z-index: 1;
+  display: inline-flex;
+  padding: 32px;
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  p {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  div {
+    img {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 8px;
+      right: 8px;
+      z-index: 1;
+    }
+  }
+
+  > img {
+    width: 280px;
+    height: 280px;
+    flex-shrink: 0;
+    object-fit: cover;
+    margin-right: 24px;
+  }
 `

@@ -1,5 +1,6 @@
 import * as S from './styles'
 import Button from '../Button'
+import close from '../../assets/images/close.svg'
 type Props = {
   title: string
   image: string
@@ -18,6 +19,9 @@ const Product = ({ title, image, description }: Props) => (
 
     <S.Modal>
       <S.ModalContent className="container">
+        <div>
+          <img src={close} alt="icone de fechar" />
+        </div>
         <img src={image} alt="pizza" />
         <div>
           <h2>{title}</h2>
