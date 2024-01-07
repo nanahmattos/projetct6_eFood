@@ -9,6 +9,11 @@ export const CardProduct = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  img {
+    width: 100%;
+    height: 167px;
+    object-fit: cover;
+  }
   h2 {
     font-size: 16px;
   }
@@ -20,9 +25,13 @@ export const Modal = styled.div`
   width: 100%;
   height: 100%;
   z-index: 1;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
+
+  &.visivel {
+    display: flex;
+  }
 
   .overlay {
     position: absolute;
@@ -30,12 +39,12 @@ export const Modal = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    // background-color: rgba(0, 0, 0, 0.73);
+    background-color: rgba(0, 0, 0, 0.8);
   }
 `
 export const ModalContent = styled.div`
   background-color: ${palette.orange};
-  posisition: relative;
+  position: relative;
   z-index: 1;
   display: inline-flex;
   padding: 32px;
@@ -50,12 +59,12 @@ export const ModalContent = styled.div`
   }
   div {
     img {
+      cursor: pointer;
       position: absolute;
       width: 16px;
       height: 16px;
       top: 8px;
       right: 8px;
-      z-index: 1;
     }
   }
 

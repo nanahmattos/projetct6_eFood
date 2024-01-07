@@ -1,15 +1,25 @@
 import * as S from './styles'
-
-const Banner = () => (
-  <S.BannerImage>
-    <div className="container">
-      <div>
-        <S.TextCountry>Italiana</S.TextCountry>
+type Props = {
+  image: string
+  country: string
+  title: string
+}
+const Banner = ({ image, country, title }: Props) => {
+  return (
+    <S.BannerImage
+      style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${image})`
+      }}
+    >
+      <div className="container">
+        <div>
+          <S.TextCountry>{country}</S.TextCountry>
+        </div>
+        <div>
+          <S.NameRestaurant>{title}</S.NameRestaurant>
+        </div>
       </div>
-      <div>
-        <S.NameRestaurant>La Dolce Vita Trattoria</S.NameRestaurant>
-      </div>
-    </div>
-  </S.BannerImage>
-)
+    </S.BannerImage>
+  )
+}
 export default Banner

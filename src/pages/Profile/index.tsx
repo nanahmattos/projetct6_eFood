@@ -1,59 +1,30 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import Banner from '../../components/Banner'
 import Header from '../../components/Header'
 import ProductList from '../../components/ProductList'
-import Food from '../../models/Food'
+import { Food } from '../Home'
 
-import pizza from '../../assets/images/pizza.png'
+const Profile = () => {
+  const { id } = useParams()
+  const [menu, setMenu] = useState<Food | undefined>(undefined)
 
-const pratosPrincipais: Food[] = [
-  {
-    id: 1,
-    title: 'Pizza Marguerita',
-    image: pizza,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 2,
-    title: 'Pizza Marguerita',
-    image: pizza,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 3,
-    title: 'Pizza Marguerita',
-    image: pizza,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 4,
-    title: 'Pizza Marguerita',
-    image: pizza,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 5,
-    title: 'Pizza Marguerita',
-    image: pizza,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 6,
-    title: 'Pizza Marguerita',
-    image: pizza,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((data) => setMenu(data))
+  }, [id])
+
+  if (!menu) {
+    return <h3>Carregando...</h3>
   }
-]
-const Profile = () => (
-  <>
-    <Header />
-    <Banner />
-    <ProductList foods={pratosPrincipais} />
-  </>
-)
+
+  return (
+    <>
+      <Header />
+      <Banner image={menu.capa} country={menu.tipo} title={menu.titulo} />
+      <ProductList products={[menu]} />
+    </>
+  )
+}
 export default Profile

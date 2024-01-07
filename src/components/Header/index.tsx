@@ -7,7 +7,9 @@ const Header = () => (
   <header style={{ backgroundImage: `url(${vectorImg})` }}>
     <nav className="container">
       <S.Links>
-        <li>Restaurantes</li>
+        <Link to="/">
+          <a>Restaurantes</a>
+        </Link>
         <li>
           <Link to="/">
             <img src={logo} alt="logo" />

@@ -9,4 +9,9 @@ export const Links = styled.ul`
   font-size: 18px;
   font-weight: bold;
   color: ${palette.orange};
+  a {
+    color: ${palette.orange};
+    font-size: 18px;
+    text-decoration: none;
+  }
 `

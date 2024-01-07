@@ -4,9 +4,17 @@ import { palette } from '../../styles'
 export const Card = styled.div`
   background-color: #fff;
   position: relative;
+  text-decoration: none;
+  display: block;
   border: 1px solid ${palette.orange};
   .CardText {
     padding: 8px;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: 217px;
+    object-fit: cover;
   }
 `
 export const Description = styled.p`
@@ -42,4 +50,7 @@ export const Item = styled.div`
 export const Star = styled.div`
   display: flex;
   gap: 8px;
+  img {
+    height: 21px;
+  }
 `
