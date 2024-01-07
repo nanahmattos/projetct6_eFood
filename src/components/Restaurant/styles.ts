@@ -6,7 +6,7 @@ export const Card = styled.div`
   position: relative;
   text-decoration: none;
   display: block;
-  border: 1px solid ${palette.orange};
+  border: 1px solid ${palette.rose};
   .CardText {
     padding: 8px;
   }
@@ -18,7 +18,7 @@ export const Card = styled.div`
   }
 `
 export const Description = styled.p`
-  color: ${palette.orange};
+  color: ${palette.rose};
   font-size: 14px;
   display: block;
   margin-bottom: 20px;
@@ -29,7 +29,7 @@ export const Infos = styled.div`
   right: 8px;
 `
 export const Tag = styled.div`
-  background-color: ${palette.orange};
+  background-color: ${palette.rose};
   color: #fff;
   font-size: 12px;
   font-weight: bold;
@@ -37,12 +37,13 @@ export const Tag = styled.div`
   padding: 4px 6px;
   display: inline-block;
   margin-right: 8px;
+  text-transform: capitalize;
 `
 export const Item = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: ${palette.orange};
+  color: ${palette.rose};
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 16px;

@@ -1,11 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const palette = {
-  red: '#A60A27',
-  orange: '#F25C05',
-  orangeLight: '#F27405',
-  brown: '#8C472E',
-  nude: '#F2BEA0',
+  rose: '#E66767',
+  nude: '#FFEBD9',
   white: '#FFF8F2'
 }
 

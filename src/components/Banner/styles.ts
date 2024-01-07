@@ -31,6 +31,7 @@ export const TextCountry = styled.h3`
   line-height: 32px;
   color: ${palette.white};
   margin-top: 25px;
+  text-transform: capitalize;
 `
 export const NameRestaurant = styled.h2`
   font-size: 32px;

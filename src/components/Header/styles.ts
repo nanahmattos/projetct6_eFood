@@ -8,9 +8,9 @@ export const Links = styled.ul`
   margin: 65px 0;
   font-size: 18px;
   font-weight: bold;
-  color: ${palette.orange};
+  color: ${palette.rose};
   a {
-    color: ${palette.orange};
+    color: ${palette.rose};
     font-size: 18px;
     text-decoration: none;
   }

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { palette } from '../../styles'
 
 export const CardProduct = styled.div`
-  background-color: ${palette.orange};
+  background-color: ${palette.rose};
   color: ${palette.white};
   padding: 8px;
   font-size: 14px;
@@ -43,7 +43,7 @@ export const Modal = styled.div`
   }
 `
 export const ModalContent = styled.div`
-  background-color: ${palette.orange};
+  background-color: ${palette.rose};
   position: relative;
   z-index: 1;
   display: inline-flex;

@@ -12,6 +12,6 @@ export const Links = styled.ul`
 `
 export const Text = styled.p`
   font-size: 10px;
-  color: ${palette.orange};
+  color: ${palette.rose};
   margin-top: 80px;
 `

@@ -40,7 +40,7 @@ const Restaurant = ({ title, image, description, stars, id, infos }: Props) => {
           to={`/profile/${id}`}
           title="Clique aqui para ver o perfil do restaurante"
         >
-          <>saiba mais</>
+          <>Saiba mais</>
         </Button>
       </div>
     </S.Card>

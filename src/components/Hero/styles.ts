@@ -10,7 +10,7 @@ export const HeroContainer = styled.div`
   flex-direction: column;
 `
 export const Title = styled.h1`
-  color: ${palette.orange};
+  color: ${palette.rose};
   font-size: 36px;
   text-align: center;
   margin-bottom: 40px;
