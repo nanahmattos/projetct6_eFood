@@ -2,6 +2,9 @@ import * as S from './styles'
 import Button from '../Button'
 import close from '../../assets/images/close.svg'
 import { useState } from 'react'
+import { add, open } from '../../store/reducers/cart'
+import { useDispatch } from 'react-redux'
+import { Food } from '../../pages/Home'
 
 type Props = {
   title: string
@@ -11,10 +14,21 @@ type Props = {
   price: number
   porcao: string
 }
+
 type ModalState = {
   isVisible: boolean
 }
-const Product = ({ title, image, description, porcao, price }: Props) => {
+
+const Product = ({ title, image, description, price, porcao }: Props) => {
+  const dispatch = useDispatch()
+
+  const addToCart = (food?: Food) => {
+    if (food) {
+      dispatch(add(food))
+      dispatch(open())
+    }
+  }
+
   const [modal, setModal] = useState<ModalState>({
     isVisible: false
   })
@@ -25,6 +39,7 @@ const Product = ({ title, image, description, porcao, price }: Props) => {
     }
     return descricao
   }
+
   const closeModal = () => {
     setModal({
       isVisible: false
@@ -64,6 +79,7 @@ const Product = ({ title, image, description, porcao, price }: Props) => {
             <Button
               type="button"
               title="Clique aqui para adicionar ao carrinho"
+              onClick={addToCart}
             >
               <>Adicionar ao carrinho - R$ {price}</>
             </Button>
