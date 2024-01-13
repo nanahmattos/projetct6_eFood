@@ -3,6 +3,14 @@ import Hero from '../../components/Hero'
 import RestaurantList from '../../components/RestaurantList'
 import { useGetRestaurantQuery } from '../../services/api'
 
+export interface Menu {
+  id: number
+  foto: string
+  preco: number
+  nome: string
+  descricao: string
+  porcao: string
+}
 export type Food = {
   id: number
   titulo: string
@@ -11,14 +19,7 @@ export type Food = {
   avaliacao: string
   descricao: string
   capa: string
-  cardapio: {
-    id: number
-    foto: string
-    preco: number
-    nome: string
-    descricao: string
-    porcao: string
-  }[]
+  cardapio?: Menu[]
 }
 
 const Home = () => {

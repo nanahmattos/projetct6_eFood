@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Food } from '../pages/Home'
+import { Food, Menu } from '../pages/Home'
 
 const api = createApi({
   baseQuery: fetchBaseQuery({
@@ -9,7 +9,7 @@ const api = createApi({
     getRestaurant: builder.query<Food[], void>({
       query: () => 'restaurantes'
     }),
-    getMenu: builder.query<Food, string>({
+    getMenu: builder.query<Menu, string>({
       query: (id) => `restaurantes/${id}`
     })
   })

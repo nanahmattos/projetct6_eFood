@@ -4,7 +4,7 @@ import close from '../../assets/images/close.svg'
 import { useState } from 'react'
 import { add, open } from '../../store/reducers/cart'
 import { useDispatch } from 'react-redux'
-import { Food } from '../../pages/Home'
+import { Menu } from '../../pages/Home'
 
 type Props = {
   title: string
@@ -22,7 +22,7 @@ type ModalState = {
 const Product = ({ title, image, description, price, porcao }: Props) => {
   const dispatch = useDispatch()
 
-  const addToCart = (food?: Food) => {
+  const addToCart = (food?: Menu) => {
     if (food) {
       dispatch(add(food))
       dispatch(open())

@@ -3,22 +3,27 @@ import Banner from '../../components/Banner'
 import Cart from '../../components/Cart'
 import Header from '../../components/Header'
 import ProductList from '../../components/ProductList'
-// import { Food } from '../Home'
-import { useGetMenuQuery } from '../../services/api'
+import { useGetMenuQuery, useGetRestaurantQuery } from '../../services/api'
+
 const Profile = () => {
   const { id } = useParams()
 
   const { data: menu } = useGetMenuQuery(id!)
+  const { data: restaurante } = useGetRestaurantQuery(id!)
 
-  if (!menu) {
+  if (!menu || !restaurante) {
     return <h3>Carregando...</h3>
   }
 
   return (
     <>
       <Header />
-      <Banner image={menu.capa} country={menu.tipo} title={menu.titulo} />
-      <ProductList products={[menu]} />
+      <Banner
+        image={restaurante.capa}
+        country={restaurante.tipo}
+        title={restaurante.titulo}
+      />
+      <ProductList products={menu} />
       <Cart />
     </>
   )
