@@ -8,27 +8,31 @@ import close from '../../assets/images/close.svg'
 
 import Button from '../Button'
 
-type Props = {
-  title: string
-  image: string
-  description: string
-  id: number
-  price: number
-  porcao?: string
+export const priceBRL = (preco = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
 }
 
 type ModalState = {
   isVisible: boolean
 }
 
-const Product = ({ title, image, description, price, porcao }: Props) => {
+const Product = ({ nome, foto, descricao, preco, porcao, id }: Menu) => {
   const dispatch = useDispatch()
 
-  const addToCart = (itemMenu?: Menu) => {
-    if (itemMenu) {
-      dispatch(add(itemMenu))
-      dispatch(open())
-    }
+  const menu: Menu = {
+    id,
+    foto,
+    nome,
+    descricao,
+    preco
+  }
+
+  const addToCart = () => {
+    dispatch(add(menu))
+    dispatch(open())
   }
 
   const [modal, setModal] = useState<ModalState>({
@@ -50,9 +54,9 @@ const Product = ({ title, image, description, price, porcao }: Props) => {
   return (
     <>
       <S.CardProduct>
-        <img src={image} alt={title} />
-        <h2>{title}</h2>
-        <p>{getDescricao(description)}</p>
+        <img src={foto} alt={nome} />
+        <h2>{nome}</h2>
+        <p>{getDescricao(descricao)}</p>
         <Button
           onClick={() => {
             setModal({ isVisible: true })
@@ -73,17 +77,17 @@ const Product = ({ title, image, description, price, porcao }: Props) => {
               onClick={() => closeModal()}
             />
           </div>
-          <img src={image} alt={title} />
+          <img src={foto} alt={nome} />
           <div>
-            <h2>{title}</h2>
-            <p>{description}</p>
+            <h2>{nome}</h2>
+            <p>{descricao}</p>
             <p>Serve de: {porcao} </p>
             <Button
               type="button"
               title="Clique aqui para adicionar ao carrinho"
               onClick={addToCart}
             >
-              <>Adicionar ao carrinho - R$ {price}</>
+              <>Adicionar ao carrinho - {priceBRL(preco)}</>
             </Button>
           </div>
         </S.ModalContent>

@@ -11,11 +11,8 @@ const api = createApi({
     }),
     getMenu: builder.query<Food, string>({
       query: (id) => `restaurantes/${id}`
-    }),
-    getBanner: builder.query<Food, string>({
-      query: (id) => `restaurantes/${id}`
     })
   })
 })
-export const { useGetRestaurantQuery, useGetMenuQuery, useGetBannerQuery } = api
+export const { useGetRestaurantQuery, useGetMenuQuery } = api
 export default api

@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { useGetMenuQuery, useGetBannerQuery } from '../../services/api'
+import { useGetMenuQuery } from '../../services/api'
 
 import Banner from '../../components/Banner'
 import Cart from '../../components/Cart'
@@ -10,17 +10,16 @@ const Profile = () => {
   const { id } = useParams()
 
   const { data: menu } = useGetMenuQuery(id!)
-  const { data: banner } = useGetBannerQuery(id!)
 
-  if (!menu || !banner) {
+  if (!menu) {
     return <h3>Carregando...</h3>
   }
 
   return (
     <>
       <Header />
-      <Banner image={banner.capa} country={banner.tipo} title={banner.titulo} />
-      <ProductList products={[menu]} />
+      <Banner image={menu.capa} country={menu.tipo} title={menu.titulo} />
+      <ProductList products={menu.cardapio} />
       <Cart />
     </>
   )

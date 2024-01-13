@@ -9,7 +9,7 @@ export type Menu = {
   preco: number
   nome: string
   descricao: string
-  porcao: string
+  porcao?: string
 }
 export type Food = {
   id: number

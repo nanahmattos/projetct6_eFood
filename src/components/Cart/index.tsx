@@ -1,13 +1,13 @@
 import { RootReducer } from '../../store'
 import { useSelector, useDispatch } from 'react-redux'
 import { close, remove } from '../../store/reducers/cart'
-
+import { priceBRL } from '../Product'
 import * as S from './styles'
 import trash from '../../assets/images/trash.svg'
 import Button from '../Button'
 
 const Cart = () => {
-  const { isOpen, menuItems } = useSelector((state: RootReducer) => state.cart)
+  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
 
   const dispatch = useDispatch()
 
@@ -19,7 +19,7 @@ const Cart = () => {
   }
 
   const getTotalPrice = () => {
-    return menuItems.reduce((soma, ValorAtual) => {
+    return items.reduce((soma, ValorAtual) => {
       return (soma += ValorAtual.preco)
     }, 0)
   }
@@ -28,12 +28,12 @@ const Cart = () => {
       <S.Overlay onClick={closeCart}></S.Overlay>
       <S.Sidebar>
         <ul>
-          {menuItems.map((item) => (
+          {items.map((item) => (
             <S.Item key={item.id}>
               <img src={item.foto} alt={item.nome} />
               <div>
                 <h3>{item.nome}</h3>
-                <p>{item.preco}</p>
+                <p>{priceBRL(item.preco)}</p>
               </div>
               <S.TrashImg onClick={() => removeItem(item.id)}>
                 <img src={trash} alt="remover" />
@@ -42,7 +42,7 @@ const Cart = () => {
           ))}
         </ul>
         <S.Price>
-          <span>Valor Total</span> {getTotalPrice()}
+          Valor Total <span>{priceBRL(getTotalPrice())}</span>
         </S.Price>
         <Button title="Clique aqui para continuar com a entrega" type="button">
           <>Continue com a entrega</>

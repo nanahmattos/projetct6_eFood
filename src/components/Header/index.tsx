@@ -10,7 +10,7 @@ import logo from '../../assets/images/logo.svg'
 
 const Header = () => {
   const dispatch = useDispatch()
-  const { menuItems } = useSelector((state: RootReducer) => state.cart)
+  const { items } = useSelector((state: RootReducer) => state.cart)
   const openCart = () => {
     dispatch(open())
   }
@@ -26,7 +26,7 @@ const Header = () => {
               <img src={logo} alt="logo" />
             </Link>
           </li>
-          <li onClick={openCart}>{menuItems.length} produto(s) no carrinho</li>
+          <li onClick={openCart}>{items.length} produto(s) no carrinho</li>
         </S.Links>
       </nav>
     </S.Header>
