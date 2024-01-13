@@ -13,7 +13,7 @@ export const GlobalCss = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     list-style: none;
-    overflow-x: hidden;
+    // overflow-x: hidden;
   }
   body {
     background-color: ${palette.white};

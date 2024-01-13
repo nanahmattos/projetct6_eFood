@@ -1,10 +1,12 @@
-import * as S from './styles'
-import Button from '../Button'
-import close from '../../assets/images/close.svg'
 import { useState } from 'react'
-import { add, open } from '../../store/reducers/cart'
 import { useDispatch } from 'react-redux'
 import { Menu } from '../../pages/Home'
+import { add, open } from '../../store/reducers/cart'
+
+import * as S from './styles'
+import close from '../../assets/images/close.svg'
+
+import Button from '../Button'
 
 type Props = {
   title: string
@@ -12,7 +14,7 @@ type Props = {
   description: string
   id: number
   price: number
-  porcao: string
+  porcao?: string
 }
 
 type ModalState = {
@@ -22,9 +24,9 @@ type ModalState = {
 const Product = ({ title, image, description, price, porcao }: Props) => {
   const dispatch = useDispatch()
 
-  const addToCart = (food?: Menu) => {
-    if (food) {
-      dispatch(add(food))
+  const addToCart = (itemMenu?: Menu) => {
+    if (itemMenu) {
+      dispatch(add(itemMenu))
       dispatch(open())
     }
   }

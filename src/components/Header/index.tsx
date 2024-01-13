@@ -1,19 +1,21 @@
 import { Link } from 'react-router-dom'
-import * as S from './styles'
-import vectorImg from '../../assets/images/talherbg.svg'
-import logo from '../../assets/images/logo.svg'
-import { open } from '../../store/reducers/cart'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
+import { open } from '../../store/reducers/cart'
+
+import * as S from './styles'
+
+import vectorImg from '../../assets/images/talherbg.svg'
+import logo from '../../assets/images/logo.svg'
 
 const Header = () => {
   const dispatch = useDispatch()
-  const { items } = useSelector((state: RootReducer) => state.cart)
+  const { menuItems } = useSelector((state: RootReducer) => state.cart)
   const openCart = () => {
     dispatch(open())
   }
   return (
-    <header style={{ backgroundImage: `url(${vectorImg})` }}>
+    <S.Header style={{ backgroundImage: `url(${vectorImg})` }}>
       <nav className="container">
         <S.Links>
           <Link to="/">
@@ -24,10 +26,10 @@ const Header = () => {
               <img src={logo} alt="logo" />
             </Link>
           </li>
-          <li onClick={openCart}>{items.length} produto(s) no carrinho</li>
+          <li onClick={openCart}>{menuItems.length} produto(s) no carrinho</li>
         </S.Links>
       </nav>
-    </header>
+    </S.Header>
   )
 }
 export default Header

@@ -1,12 +1,13 @@
+import { RootReducer } from '../../store'
+import { useSelector, useDispatch } from 'react-redux'
+import { close, remove } from '../../store/reducers/cart'
+
 import * as S from './styles'
 import trash from '../../assets/images/trash.svg'
 import Button from '../Button'
-import { RootReducer } from '../../store'
-import { close, remove } from '../../store/reducers/cart'
-import { useSelector, useDispatch } from 'react-redux'
 
 const Cart = () => {
-  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const { isOpen, menuItems } = useSelector((state: RootReducer) => state.cart)
 
   const dispatch = useDispatch()
 
@@ -16,9 +17,10 @@ const Cart = () => {
   const removeItem = (id: number) => {
     dispatch(remove(id))
   }
+
   const getTotalPrice = () => {
-    return items.reduce((acumulador, valorAtual) => {
-      return (acumulador += valorAtual.preco)
+    return menuItems.reduce((soma, ValorAtual) => {
+      return (soma += ValorAtual.preco)
     }, 0)
   }
   return (
@@ -26,7 +28,7 @@ const Cart = () => {
       <S.Overlay onClick={closeCart}></S.Overlay>
       <S.Sidebar>
         <ul>
-          {items.map((item) => (
+          {menuItems.map((item) => (
             <S.Item key={item.id}>
               <img src={item.foto} alt={item.nome} />
               <div>
