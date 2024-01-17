@@ -1,7 +1,6 @@
-import { Menu } from '../../pages/Home'
+import Product from '../Product'
 
 import * as S from './styles'
-import Product from '../Product'
 
 type Props = {
   products: Menu[]

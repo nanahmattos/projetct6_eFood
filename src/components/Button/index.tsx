@@ -1,15 +1,17 @@
 import * as S from './styles'
+
 type Props = {
-  type: 'button' | 'link'
+  type: 'button' | 'link' | 'submit'
   title: string
   to?: string
   onClick?: () => void
-  children: JSX.Element
+  children: JSX.Element | string
+  isActive?: boolean
 }
 const Button = ({ type, title, to, onClick, children }: Props) => {
-  if (type === 'button') {
+  if (type === 'button' || type === 'submit') {
     return (
-      <S.Button type="button" title={title} onClick={onClick}>
+      <S.Button type={type} title={title} onClick={onClick}>
         {children}
       </S.Button>
     )

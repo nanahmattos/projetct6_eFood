@@ -5,6 +5,7 @@ import Banner from '../../components/Banner'
 import Cart from '../../components/Cart'
 import Header from '../../components/Header'
 import ProductList from '../../components/ProductList'
+import Checkout from '../../components/Checkout'
 
 const Profile = () => {
   const { id } = useParams()
@@ -21,6 +22,7 @@ const Profile = () => {
       <Banner image={menu.capa} country={menu.tipo} title={menu.titulo} />
       <ProductList products={menu.cardapio} />
       <Cart />
+      <Checkout />
     </>
   )
 }

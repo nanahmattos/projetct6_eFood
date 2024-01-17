@@ -1,6 +1,7 @@
-import * as S from './styles'
 import vectorImg from '../../assets/images/talherbg.svg'
 import logo from '../../assets/images/logo.svg'
+
+import * as S from './styles'
 
 const Hero = () => (
   <S.HeroContainer style={{ backgroundImage: `url(${vectorImg})` }}>

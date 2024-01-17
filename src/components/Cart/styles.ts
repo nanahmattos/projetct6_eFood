@@ -1,39 +1,17 @@
 import styled from 'styled-components'
 import { palette } from '../../styles'
-import { Button } from '../Button/styles'
-export const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.8;
-`
-export const CartContain = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+
+export const CartContainer = styled.div`
   display: none;
-  justify-content: flex-end;
 
   &.is-open {
     display: flex;
   }
-`
-export const Sidebar = styled.aside`
-  background-color: ${palette.rose};
-  z-index: 1;
-  padding: 16px 8px 0 8px;
-  max-width: 360px;
-  width: 100%;
-  ${Button} {
-    max-width: 100%;
-    width: 100%;
+  .text {
+    text-align: center;
   }
 `
+
 export const Item = styled.li`
   background-color: ${palette.nude};
   display: flex;
@@ -41,6 +19,7 @@ export const Item = styled.li`
   margin: 16px 0;
   position: relative;
   gap: 8px;
+
   h3 {
     font-size: 18px;
     font-weight: bold;
@@ -70,5 +49,5 @@ export const Price = styled.p`
   display: flex;
   justify-content: space-between;
   padding-top: 24px;
-  padding-bottom: 16px;
+  margin-bottom: 16px;
 `

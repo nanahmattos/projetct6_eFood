@@ -1,19 +1,14 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Menu } from '../../pages/Home'
-import { add, open } from '../../store/reducers/cart'
 
-import * as S from './styles'
-import close from '../../assets/images/close.svg'
+import { add, open } from '../../store/reducers/cart'
+import { priceBRL } from '../../utils'
 
 import Button from '../Button'
 
-export const priceBRL = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
-}
+import close from '../../assets/images/close.svg'
+
+import * as S from './styles'
 
 type ModalState = {
   isVisible: boolean
@@ -21,7 +16,6 @@ type ModalState = {
 
 const Product = ({ nome, foto, descricao, preco, porcao, id }: Menu) => {
   const dispatch = useDispatch()
-
   const menu: Menu = {
     id,
     foto,
@@ -29,7 +23,6 @@ const Product = ({ nome, foto, descricao, preco, porcao, id }: Menu) => {
     descricao,
     preco
   }
-
   const addToCart = () => {
     dispatch(add(menu))
     dispatch(open())

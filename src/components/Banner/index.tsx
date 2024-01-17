@@ -1,4 +1,5 @@
 import * as S from './styles'
+
 type Props = {
   image: string
   country: string

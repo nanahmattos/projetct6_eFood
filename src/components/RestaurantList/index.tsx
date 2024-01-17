@@ -1,6 +1,6 @@
-import { Food } from '../../pages/Home'
-import * as S from './styles'
 import Restaurant from '../Restaurant'
+
+import * as S from './styles'
 
 type Props = {
   restaurante: Food[]

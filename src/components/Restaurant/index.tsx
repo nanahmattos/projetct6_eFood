@@ -1,6 +1,8 @@
-import * as S from './styles'
-import starIcon from '../../assets/images/star.svg'
 import Button from '../Button'
+
+import starIcon from '../../assets/images/star.svg'
+
+import * as S from './styles'
 
 type Props = {
   id: number
@@ -40,7 +42,7 @@ const Restaurant = ({ title, image, description, stars, id, infos }: Props) => {
           to={`/profile/${id}`}
           title="Clique aqui para ver o perfil do restaurante"
         >
-          <>Saiba mais</>
+          Saiba mais
         </Button>
       </div>
     </S.Card>
