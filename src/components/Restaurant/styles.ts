@@ -7,6 +7,7 @@ export const Card = styled.div`
   text-decoration: none;
   display: block;
   border: 1px solid ${palette.rose};
+  height: 100%;
   .CardText {
     padding: 8px;
   }

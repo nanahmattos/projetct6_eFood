@@ -1,14 +1,17 @@
 import styled from 'styled-components'
-import { palette } from '../../styles'
+import { breakpoints, palette } from '../../styles'
 
 export const CardProduct = styled.div`
   background-color: ${palette.rose};
   color: ${palette.white};
   padding: 8px;
   font-size: 14px;
+  justify-content: space-around;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  height: 100%;
+
   img {
     width: 100%;
     height: 167px;
@@ -48,7 +51,9 @@ export const ModalContent = styled.div`
   z-index: 1;
   display: inline-flex;
   padding: 32px;
-
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+  }
   h2 {
     font-size: 18px;
     margin-bottom: 16px;
@@ -74,5 +79,8 @@ export const ModalContent = styled.div`
     flex-shrink: 0;
     object-fit: cover;
     margin-right: 24px;
+    @media (max-width: ${breakpoints.mobile}) {
+      width: 100%;
+    }
   }
 `

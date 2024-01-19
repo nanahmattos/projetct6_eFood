@@ -6,7 +6,7 @@ import { priceBRL } from '../../utils'
 
 import Button from '../Button'
 
-import close from '../../assets/images/close.svg'
+import closeIcon from '../../assets/images/close.svg'
 
 import * as S from './styles'
 
@@ -23,9 +23,17 @@ const Product = ({ nome, foto, descricao, preco, porcao, id }: Menu) => {
     descricao,
     preco
   }
+
+  const closeModal = () => {
+    setModal({
+      isVisible: false
+    })
+  }
+
   const addToCart = () => {
     dispatch(add(menu))
     dispatch(open())
+    closeModal()
   }
 
   const [modal, setModal] = useState<ModalState>({
@@ -33,17 +41,12 @@ const Product = ({ nome, foto, descricao, preco, porcao, id }: Menu) => {
   })
 
   const getDescricao = (descricao: string) => {
-    if (descricao.length > 120) {
-      return descricao.slice(0, 115) + '...'
+    if (descricao.length > 132) {
+      return descricao.slice(0, 129) + '...'
     }
     return descricao
   }
 
-  const closeModal = () => {
-    setModal({
-      isVisible: false
-    })
-  }
   return (
     <>
       <S.CardProduct>
@@ -65,7 +68,7 @@ const Product = ({ nome, foto, descricao, preco, porcao, id }: Menu) => {
         <S.ModalContent className="container">
           <div>
             <img
-              src={close}
+              src={closeIcon}
               alt="icone de fechar"
               onClick={() => closeModal()}
             />

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { palette } from '../../styles'
+import { breakpoints, palette } from '../../styles'
+
 export const Header = styled.header`
   overflow-x: hidden;
 `
@@ -11,6 +12,10 @@ export const Links = styled.ul`
   font-size: 18px;
   font-weight: bold;
   color: ${palette.rose};
+  @media (max-width: ${breakpoints.mobile}) {
+    gap: 8px;
+    flex-direction: column;
+  }
   a {
     color: ${palette.rose};
     font-size: 18px;

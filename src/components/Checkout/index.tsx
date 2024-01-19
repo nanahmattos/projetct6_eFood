@@ -53,28 +53,37 @@ const Checkout = () => {
       address: Yup.string().required('O campo é obrigatório'),
       city: Yup.string().required('O campo é obrigatório'),
       postCode: Yup.string()
-        .min(9, 'O campo precisa ter 8 caracteres')
-        .max(9, 'O campo precisa ter 8 caracteres')
+        .matches(/^\d{5}-\d{3}|\d{8}$/, 'Formato de CEP inválido')
         .required('O campo é obrigatório'),
       houseNumber: Yup.string().required('O campo é obrigatório'),
       complement: Yup.string(),
-
       //Validação de pagamento
       cardName: Yup.string().when((values, schema) =>
         payment ? schema.required('O campo é obrigatório') : schema
       ),
-      cardNumber: Yup.string().when((values, schema) =>
-        payment ? schema.required('O campo é obrigatório') : schema
-      ),
-      cardCode: Yup.string().when((values, schema) =>
-        payment ? schema.required('O campo é obrigatório') : schema
-      ),
-      expiresMonth: Yup.string().when((values, schema) =>
-        payment ? schema.required('O campo é obrigatório') : schema
-      ),
-      expiresYear: Yup.string().when((values, schema) =>
-        payment ? schema.required('O campo é obrigatório') : schema
-      )
+      cardNumber: Yup.string()
+        .matches(
+          /^\d{4} \d{4} \d{4} \d{4}|\d{16}$/,
+          'Número do cartão inválido'
+        )
+        .when((values, schema) =>
+          payment ? schema.required('O campo é obrigatório') : schema
+        ),
+      cardCode: Yup.string()
+        .matches(/^\d{3}$/, 'Código de segurança inválido')
+        .when((values, schema) =>
+          payment ? schema.required('O campo é obrigatório') : schema
+        ),
+      expiresMonth: Yup.string()
+        .matches(/^\d{2}$/, 'Mês de vencimento inválido')
+        .when((values, schema) =>
+          payment ? schema.required('O campo é obrigatório') : schema
+        ),
+      expiresYear: Yup.string()
+        .matches(/^\d{2}$/, 'Ano de vencimento inválido')
+        .when((values, schema) =>
+          payment ? schema.required('O campo é obrigatório') : schema
+        )
     }),
     onSubmit: (values) => {
       purchase({
@@ -113,6 +122,24 @@ const Checkout = () => {
     const hasError = isTouched && isInvalid
 
     return hasError
+  }
+
+  const continuePayment = () => {
+    const isFormEmpty = Object.values(form.values).every((value) => !value)
+    if (isFormEmpty || !form.isValid) {
+      alert(
+        'Preencha todos os campos obrigatórios corretamente antes de continuar.'
+      )
+      form.setTouched({
+        receiverName: true,
+        address: true,
+        city: true,
+        postCode: true,
+        houseNumber: true
+      })
+    } else {
+      setPayment(true)
+    }
   }
 
   useEffect(() => {
@@ -335,7 +362,7 @@ const Checkout = () => {
                 </S.InputItems>
                 <Button
                   isActive={payment}
-                  onClick={() => setPayment(true)}
+                  onClick={continuePayment}
                   type="button"
                   title="Clique aqui para continuar o pagamento"
                 >

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { palette } from '../../styles'
+import { breakpoints, palette } from '../../styles'
 
 export const CartContainer = styled.div`
   display: none;
@@ -10,6 +10,10 @@ export const CartContainer = styled.div`
   .text {
     text-align: center;
   }
+  ul {
+    max-height: 350px;
+    overflow: auto;
+  }
 `
 
 export const Item = styled.li`
@@ -19,7 +23,9 @@ export const Item = styled.li`
   margin: 16px 0;
   position: relative;
   gap: 8px;
-
+  @media (max-width: ${breakpoints.mobile}) {
+    display: inlie-block;
+  }
   h3 {
     font-size: 18px;
     font-weight: bold;

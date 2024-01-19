@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { palette } from '../../styles'
+import { breakpoints, palette } from '../../styles'
 import { Button } from '../Button/styles'
 
 export const Container = styled.div`
@@ -10,7 +10,9 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   justify-content: flex-end;
-
+  @media (max-width: ${breakpoints.mobile}) {
+    justify-content:center;
+  }
   h2 {
     font-size: 16px;
     margin: 16px 0 8px;
